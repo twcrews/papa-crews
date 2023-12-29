@@ -2,26 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@supports not (-webkit-touch-callout: none) {
+	@keyframes fadeIn {
+		0% {
+			opacity: 0%;
+			transform: scale(150%);
+			filter: blur(40px);
+		}
+		100% {
+			opacity: 100%;
+			transform: scale(100%);
+			filter: blur(0px);
+		}
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@supports (-webkit-touch-callout: none) {
+	@keyframes fadeIn {
+		0% {
+			opacity: 0%;
+			transform: scale(150%);
+		}
+		100% {
+			opacity: 100%;
+			transform: scale(100%);
+		}
+	}
+}
+
+@keyframes buttons {
+	0% {
+		visibility: collapse;
+		opacity: 0;
+	}
+	1% {
+		opacity: 0;
+		visibility: visible;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	color: #eee;
+	background-color: black;
+}
+
+.centered {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.content {
+  opacity: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 496px;
+	max-height: 100%;
+  padding: 8px 24px;
+  transition: height 1s ease-in-out;
+  animation-duration: 4s;
+  animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
+  animation-name: fadeIn;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+	will-change: backdrop-filter;
+}
+
+.name {
+	font-family: "Great Vibes", cursive;
+	font-size: 64px;
+}
+
+.buttons {
+	visibility: collapse;
+	opacity: 0;
+	align-items: center;
+	animation-delay: 3s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	animation-name: buttons;
+	animation-duration: 1s;
+}
+
+@media only screen and (max-width: 600px) {
+  .name { font-size: 48px; }
+}
+
+@media only screen and (max-width: 400px) {
+  .name { font-size: 32px; }
 }
