@@ -80,7 +80,7 @@ body {
 .name {
 	font-family: "Great Vibes", cursive;
 	font-size: 64px;
-	margin-bottom: -32px;
+	margin: -32px 0;
   font-weight: normal;
 }
 
@@ -110,7 +110,6 @@ body {
 .buttons {
   display: flex;
   gap: 16px;
-	padding-top: 16px;
 	visibility: collapse;
 	opacity: 0;
 	align-items: center;
