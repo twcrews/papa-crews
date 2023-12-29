@@ -1,43 +1,34 @@
 import "./App.css";
-import {
-	Heading,
-	ChakraProvider,
-	Stack,
-	Link,
-	Button,
-	Box,
-	Image,
-	Text,
-} from "@chakra-ui/react";
 
 function App() {
 	return (
-		<Box className="centered">
-			<Box className="content">
-				<Image src="/papa.webp" alt="Portrait of Grant Crews" />
-				<Heading className="name">Grant Paschal Crews</Heading>
-				<Text className="dates">1942 &ndash; 2023</Text>
-				<ChakraProvider>
-					<Stack
-						direction="row"
-						gap="16px"
-						className="buttons"
-						fontFamily="'Georgia', 'Times New Roman', Times, serif"
+		<div className="centered">
+			<div className="content">
+				<img className="photo" src="/papa.webp" alt="Portrait of Grant Crews" />
+				<h1 className="name">Grant Paschal Crews</h1>
+				<p className="dates">1942 &ndash; 2023</p>
+				<div className="buttons">
+					<button
+						onClick={() =>
+							window.open("https://www.oklahoman.com/obituaries/pokl0671799")
+						}
+						className="button"
 					>
-						<Link href="https://www.oklahoman.com/obituaries/pokl0671799">
-							<Button colorScheme="white" variant="outline">
-								Obituary
-							</Button>
-						</Link>
-						<Link href="https://www.oklahoman.com/obituaries/pokl0671799/memoryboard">
-							<Button colorScheme="white" variant="outline">
-								Post a Memory
-							</Button>
-						</Link>
-					</Stack>
-				</ChakraProvider>
-			</Box>
-		</Box>
+						Obituary
+					</button>
+					<button
+						className="button"
+						onClick={() =>
+							window.open(
+								"https://www.oklahoman.com/obituaries/pokl0671799/memoryboard"
+							)
+						}
+					>
+						Post a Memory
+					</button>
+				</div>
+			</div>
+		</div>
 	);
 }
 
